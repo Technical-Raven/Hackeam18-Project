@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/HACKEAM.png" type="Texture" id=1]
-[ext_resource path="res://scripts/autotext.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Signin.gd" type="Script" id=2]
+[ext_resource path="res://scripts/autotext.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -61,11 +62,12 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width" ]
 
-[node name="HACKEAM" type="Sprite" index="0"]
+[node name="HACKEAM" type="Sprite"]
 
 position = Vector2( 244.864, 239.991 )
 scale = Vector2( 0.408797, 0.422187 )
 texture = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="username" type="LineEdit" parent="." index="0"]
 
@@ -95,7 +97,7 @@ placeholder_alpha = 0.4
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Hint", "Placeholder", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
 
 [node name="pass" type="LineEdit" parent="username" index="0"]
@@ -126,7 +128,65 @@ placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="signin" type="Button" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -122.0
+margin_top = 1043.0
+margin_right = -36.0
+margin_bottom = 1091.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "SignIn"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="2"]
+
+download_file = ""
+use_threads = false
+body_size_limit = -1
+max_redirects = 8
+
+[node name="AcceptDialog" type="AcceptDialog" parent="." index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 41.0
+margin_top = 333.0
+margin_right = 171.0
+margin_bottom = 428.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Alert!"
+resizable = false
+dialog_hide_on_ok = true
+_sections_unfolded = [ "Dialog", "Popup" ]
+
+[connection signal="pressed" from="signin" to="." method="_on_signin_pressed"]
 
 

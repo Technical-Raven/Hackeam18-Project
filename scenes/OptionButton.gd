@@ -9,8 +9,6 @@ func _ready():
 	# Initialization here
 	add_item("Farmer")
 	add_item("Broker")
-	add_item("Worker")
-	pass
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

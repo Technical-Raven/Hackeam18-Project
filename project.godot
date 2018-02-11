@@ -12,7 +12,12 @@ config_version=3
 
 config/name="HackeamProject"
 run/main_scene="res://scenes/register_page.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://scenes/HACKEAM.png"
+config/icon="res://scenes/HACKEAM.png"
+
+[autoload]
+
+globals="*res://scripts/globals.gd"
 
 [display]
 
@@ -26,5 +31,5 @@ singletons=[  ]
 
 [rendering]
 
-environment/default_clear_color=Color( 0.852997, 0.858284, 0.902344, 1 )
+environment/default_clear_color=Color( 0.76886, 0.778976, 0.863281, 1 )
 environment/default_environment="res://default_env.tres"
